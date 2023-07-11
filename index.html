@@ -8,16 +8,130 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+			.thmBody {
+				background-color: PapayaWhip;
+				border: 3px solid RosyBrown;
+				text-align: left;
+				padding: 0.5em;
+				margin-top: 0em;
+			}
+
+			.thmHead {
+				background-color: PeachPuff;
+				border-radius: 30px 30px 0px 0px;
+				text-align: left;
+				padding: 0.5em;
+				margin-bottom: 0.2em;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2> Perfect Copositive Matrices </h2>
+					<br>
+					Based on joint works with Achill Schürmann
+				</section>
+				<section>
+					<section> Quick Rundown of Definitions and Notation </section>
+					<section>
+						<p align="left">
+							We denote by $\mS^d$ the vector space of symmetric $d\times d$ matrices, 
+							by $\mS^d_{\geq 0}$ (resp. $\mS^d_{>0}$) the cone of positive semidefinite
+							(resp. definite) matrices and by $\IR^d_{\geq 0}$ (resp. $\IZ^d_{\geq 0}$) 
+							the set of componentwise non-negative (integral) vectors.
+						</p>
+					</section>
+					<section>
+						<p align="left">
+							Let 
+							\[
+								\cop^d = \bigg\{
+									Q\in\mS^d: x^\intercal Qx \geq 0 \text{ for all } x\in\IR^d_{\geq 0}
+									\bigg\}
+							\]
+							denote the <em> cone of copositive matrices of order $d$ </em>.
+						</p>
+					</section>
+					<section>
+						<p align="left">
+							\[
+								\minC Q = \min_{x\in\IZ^d_{\geq 0}}Q[x]
+							\]
+							\[
+								\MinC Q = \bigg\{ x\in\IZ^d_{\geq 0}: Q[x] = \minC Q \bigg\}
+							\]
+							For matrices $Q\in\oint\cop^d$ we have
+							\[
+								\minC Q > 0 \text{ and } |\MinC Q| < \infty.
+							\]
+						</p>
+					</section>
+					<section>
+						<p align="left">
+							A matrix $Q\in\oint\cop^d$ is called <em> perfect copositive </em>, if the set 
+							\[
+								\mV(Q) = \bigg\{ xx^\intercal: x\in\MinC Q \bigg\}
+							\]
+							has a non-empty interior in $\mS^d$.
+					</section>
+				</section>
+				<section>
+					<section> Connecting the Classics with the Newfangled </section>
+					<section>
+						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmBody">
+							Every classically perfect matrix is artihmetically equivalent to a 
+							classically perfect matrix, which is also perfect copositive.
+						</div>
+					</section>
+				</section>
+				<section>
+					<section> Classifying all positive semidefinite perfect copositive matrices </section>
+					<!-- TODO: Better name for those!! -->
+					<section>
+						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmBody">
+							Let $P\in\obd\mS^n_{\geq 0}\cap\oint\cop^n$ with $\ork P=k \geq 2$.
+							Then $P$ is perfect copositive if and only if there exists a $U\in\text{GL}_n(\IZ)$
+							and a perfect copositive $\widetilde{P}\in\mS^K_{>0}$, such that
+							\[
+								U^\intercal PU = \begin{pmatrix} 0 & 0 \\ 0 & \widetilde{P} \end{pmatrix}.
+							\]
+						</div>
+					</section>
+					<section> What about indefinite matrices? </section>
+				</section>
+				<section>
+					<section> Finiteness Results </section>
+					<section>
+						<p align="left"> The classic one: </p>
+						<div class="thmHead"> <b> Theorem: </b> (A-M Berg&eacute ?) </div>
+						<div class="thmBody">
+							For any $Q_0\in\mS^n_{>0}$, constant $C>0$ and given minimum $m$,
+							there are only finitely many classically perfect matrices $Q$ with 
+							minimum $m$, such that $\langle Q, Q_0 \rangle \leq C$.
+						</div>
+						<p align="left"> Does not hold for any matrix not in $\mS^n_{>0}$? </p>
+					</section>
+					<section>
+						<p align="left"> The new (partial) one: </p>
+						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmBody">
+							For any $P_0\in\oint\cp^n$, constant $C>0$ and given copositive minimum $m$,
+							there are only finitely many perfect copositive matrices $P$ with copositive minimum $m$,
+							such that $\langle P, P_0 \rangle \leq C$.
+						</div>
+						<p align="left"><b> Does </b> hold for matrices outside of $\oint\cp^n$! </p>
+					</section>
+				</section>
 			</div>
 		</div>
 
@@ -25,15 +139,28 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				katex: { macros: {
+					"\\IR": "\\mathbb{R}",
+					"\\IZ": "\\mathbb{Z}",
+					"\\mS": "\\mathcal{S}",
+					"\\cop": "\\mathcal{COP}",
+					"\\cp": "\\mathcal{CP}",
+					"\\minC": "\\operatorname{min}_{\cop}",
+					"\\MinC": "\\operatorname{Min}_{\cop}",
+					"\\mV": "\\mathcal{V}",
+					"\\oint": "\\operatorname{int}",
+					"\\obd": "\\operatorname{bd}",
+					"\\ork": "\\operatorname{rk}",
+				}},
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
 	</body>
