@@ -29,6 +29,16 @@
 				padding: 0.5em;
 				margin-bottom: 0.2em;
 			}
+
+			.textPart {
+				text-align: left;
+				padding: 0em;
+				margin: 0em;
+			}
+
+			.changer {
+				color: Coral;
+			}
 		</style>
 	</head>
 	<body>
@@ -41,16 +51,13 @@
 				</section>
 				<section>
 					<section> Quick Rundown of Definitions and Notation </section>
-					<section>
-						<p align="left">
+					<section style="text-align: left;">
 							We denote by $\mS^d$ the vector space of symmetric $d\times d$ matrices, 
 							by $\mS^d_{\geq 0}$ (resp. $\mS^d_{>0}$) the cone of positive semidefinite
 							(resp. definite) matrices and by $\IR^d_{\geq 0}$ (resp. $\IZ^d_{\geq 0}$) 
 							the set of componentwise non-negative (integral) vectors.
-						</p>
 					</section>
-					<section>
-						<p align="left">
+					<section style="text-align: left;">
 							Let 
 							\[
 								\cop^d = \bigg\{
@@ -58,10 +65,8 @@
 									\bigg\}
 							\]
 							denote the <em> cone of copositive matrices of order $d$ </em>.
-						</p>
 					</section>
-					<section>
-						<p align="left">
+					<section style="text-align: left;">
 							\[
 								\minC Q = \min_{x\in\IZ^d_{\geq 0}}Q[x]
 							\]
@@ -72,10 +77,8 @@
 							\[
 								\minC Q > 0 \text{ and } |\MinC Q| < \infty.
 							\]
-						</p>
 					</section>
-					<section>
-						<p align="left">
+					<section style="text-align: left;">
 							A matrix $Q\in\oint\cop^d$ is called <em> perfect copositive </em>, if the set 
 							\[
 								\mV(Q) = \bigg\{ xx^\intercal: x\in\MinC Q \bigg\}
@@ -96,40 +99,112 @@
 				<section>
 					<section> Classifying all positive semidefinite perfect copositive matrices </section>
 					<!-- TODO: Better name for those!! -->
-					<section>
+					<section style="text=align: left;">
 						<div class="thmHead"> <b> Theorem: </b></div>
 						<div class="thmBody">
-							Let $P\in\obd\mS^n_{\geq 0}\cap\oint\cop^n$ with $\ork P=k \geq 2$.
-							Then $P$ is perfect copositive if and only if there exists a $U\in\text{GL}_n(\IZ)$
-							and a perfect copositive $\widetilde{P}\in\mS^K_{>0}$, such that
+							Let $P$ be positive semidefinite and perfect copositive with $\ork P=k \geq 2$.
+							Then there exists a $U\in\text{GL}_n(\IZ)$ and a perfect copositive 
+							$\widetilde{P}\in\mS^k_{>0}$, such that
 							\[
 								U^\intercal PU = \begin{pmatrix} 0 & 0 \\ 0 & \widetilde{P} \end{pmatrix}.
 							\]
 						</div>
 					</section>
+					<section>
+						"Difficult" part is showing $\widetilde{P}$ to be perfect copositive. 
+					</section>
+					<section style="text-align: left;">
+						For positive semidefinite (in fact all non-full rank) matrices $P$ we have 
+						\[
+								\MinC P = (\{ x_1, \dots x_N \} + \ker P)\cap\IZ^n_{\geq 0}.
+						\]
+						If the $x_i$ are chosen such that for $i\neq j$
+						\[ 
+							x_i + \ker P \cap x_j + \ker P = \emptyset,
+						\]
+						we say that they <em> generate </em> $\MinC P$. 
+					</section>
+					<section style="text-align: left;">
+						<div class="thmHead"> <b> Corollary: </b></div>
+						<div class="thmBody"> 
+							If $\ork P=k$, then $\MinC P$ has $N \geq \binom{k+1}{2}$ generators 
+							$x_1, \dots, x_N$.
+						</div>
+						Easy to prove using the "explicit" construction of $U$ in the theorem.
+					</section>
 					<section> What about indefinite matrices? </section>
+					<section style="text-align: left;">
+						Some general properties:
+					</section>
+					<section style="text-align: left;">
+						<div class="thmHead"> <b> Conjecture: </b></div>
+						<div class="thmBody">
+							For a fixed $n\geq 3$, all $n\times n$ indefinite perfect copositive matrices lie in 
+							at most finitely many facets of $\mR_\cop$.
+						</div>
+						In other words there is a finite set $\Lambda \subset \IZ^n_{\geq 0}$, such that
+						every indefinite perfect copositive matrix has at least one minimal vector in $\Lambda$
+					</section>
+					<section>
+						<div class="thmHead"> <b> Example: </b></div>
+						<div class="thmBody">
+							For $n=3$, we have $\Lambda = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$
+						</div>
+					</section>
 				</section>
 				<section>
 					<section> Finiteness Results </section>
-					<section>
-						<p align="left"> The classic one: </p>
-						<div class="thmHead"> <b> Theorem: </b> (A-M Berg&eacute ?) </div>
+					<section style="text-align: left;">
+						<span class="fragment fade-out"> The classic one </span>
+						<span class="fragment fade-left"> The new (partial) one </span>
+						<div class="thmHead"> 
+							<b> Theorem: </b> 
+							<span class="fragment fade-out"> (A-M Berg&eacute ?) </span>
+							<span class="fragment fade-left"> (Dutour-Sikiri&#263, Sch&uumlrmann, Vallentin, 2017) </span>
+							</div>
 						<div class="thmBody">
-							For any $Q_0\in\mS^n_{>0}$, constant $C>0$ and given minimum $m$,
-							there are only finitely many classically perfect matrices $Q$ with 
-							minimum $m$, such that $\langle Q, Q_0 \rangle \leq C$.
+							For any $P_0\in$
+							<span class="fragment fade-out">$\mS^n_{>0}$ </span>
+							<span class="fragment fade-left">$\oint\cp^n$ </span>, 
+							constant $C>0$ and given minimum $m$,
+							there are only finitely many classically perfect matrices $P$ with 
+							minimum $m$, such that $\langle P, P_0 \rangle \leq C$.
 						</div>
-						<p align="left"> Does not hold for any matrix not in $\mS^n_{>0}$? </p>
+						Does not hold for any matrix outside of $\mS^n_{>0}$!
+						<!-- <div class="thmHead"> 
+							<b> Theorem: </b> (Dutour-Sikiri&#263, Sch&uumlrmann, Vallentin, 2017)
+						</div>
+						<div class="thmBody">
+							For any <span class="changer"> $P_0\in\oint\cp^n$ </span>, constant $C>0$ and given 
+							<span class="changer"> copositive </span>  minimum $m$, there are only finitely many 
+							perfect <span class="changer"> copositive </span> matrices $P$ with 
+							<span class="changer"> copositive </span> minimum $m$, such that 
+							$\langle P, P_0 \rangle \leq C$.
+						</div>
+						<span class="changer"> Does </span> hold for matrices outside of 
+						<span class="changer"> $\oint\cp^n$! </span> -->
 					</section>
 					<section>
-						<p align="left"> The new (partial) one: </p>
-						<div class="thmHead"> <b> Theorem: </b></div>
-						<div class="thmBody">
-							For any $P_0\in\oint\cp^n$, constant $C>0$ and given copositive minimum $m$,
-							there are only finitely many perfect copositive matrices $P$ with copositive minimum $m$,
-							such that $\langle P, P_0 \rangle \leq C$.
+						<div class="thmHead"> 
+							<b> Example: </b> $\otr P = \langle P, \text{Id} \rangle \leq C$ 
 						</div>
-						<p align="left"><b> Does </b> hold for matrices outside of $\oint\cp^n$! </p>
+						<div class="thmBody"> 
+							
+						</div>
+						<div class="thmHead"> 
+							<b> Example: </b> $\langle P, \frac12 Q_{\mathsf{A}_d} \rangle \leq C$ 
+						</div>
+						<div class="thmBody">
+
+						</div>
+					</section>
+					<section>
+						<div class="thmHead"> <b> Conjecture: </b></div>
+						<div class="thmBody"> 
+							For any $P_0\in\mS^n_{>0}$, constant $C>0$ and given copositive minimum $m$,
+							there are only finitely many perfect copositive matrices $P$ with copositive minimum
+							$m$, such that $\langle P, P_0 \rangle \leq C$.
+						</div>
 					</section>
 				</section>
 			</div>
@@ -145,19 +220,22 @@
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
+				// autoAnimateUnmatched: false,
 				hash: true,
 				katex: { macros: {
 					"\\IR": "\\mathbb{R}",
 					"\\IZ": "\\mathbb{Z}",
 					"\\mS": "\\mathcal{S}",
+					"\\mR": "\\mathcal{R}",
 					"\\cop": "\\mathcal{COP}",
 					"\\cp": "\\mathcal{CP}",
-					"\\minC": "\\operatorname{min}_{\cop}",
-					"\\MinC": "\\operatorname{Min}_{\cop}",
+					"\\minC": "\\operatorname{min}_{\\cop}",
+					"\\MinC": "\\operatorname{Min}_{\\cop}",
 					"\\mV": "\\mathcal{V}",
 					"\\oint": "\\operatorname{int}",
 					"\\obd": "\\operatorname{bd}",
 					"\\ork": "\\operatorname{rk}",
+					"\\otr": "\\operatorname{tr}",
 				}},
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMath.KaTeX, RevealMarkdown, RevealHighlight, RevealNotes ]
