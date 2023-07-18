@@ -36,7 +36,7 @@
 				margin: 0em;
 			}
 
-			.changer {
+			.postChange {
 				color: Coral;
 			}
 		</style>
@@ -60,11 +60,17 @@
 					<section style="text-align: left;">
 							Let 
 							\[
-								\cop^d = \bigg\{
+								\cop^d = \left\{
 									Q\in\mS^d: x^\intercal Qx \geq 0 \text{ for all } x\in\IR^d_{\geq 0}
-									\bigg\}
+									\right\}
 							\]
-							denote the <em> cone of copositive matrices of order $d$ </em>.
+							denote the <em> cone of copositive matrices of order $d$ </em> and 
+							\[
+								\cp^d = \left\{ 
+									\sum_{i=1}^{n}x_ix_i^\intercal: n\in\mathbb{N}, x_i\in\IR^d_{\geq 0}
+									\right\}	
+							\]
+							the <em> cone of completely positive matrices of order $d$ </em>.
 					</section>
 					<section style="text-align: left;">
 							\[
@@ -134,43 +140,98 @@
 					</section>
 					<section> What about indefinite matrices? </section>
 					<section style="text-align: left;">
-						Some general properties:
+						Let $P$ be a indefinite perfect copositive matrix.
+						<div class="thmHead"> <b> Some general properties: </b></div>
+						<div class="thmBody">
+							<ul>
+								<li> $\ork P \geq 3$ </li>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+								<li> </li>
+							</ul>
+						</div>
+					</section>
+					<section style="text-align: left;">
+						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmBody">
+							Let $P$ be an indefinite perfect copositive matrix with $k$ negative eigenvalues 
+							$\lambda_1, \dots, \lambda_k$. 
+							Then there is an orthogonal matrix $U$ and a $\widetilde{P}\in\mS^{d-k}_{\geq 0}$,
+							such that
+							\[
+									P = U^\intercal\begin{pmatrix} \mathsf{\lambda} & 0 \\ 0 & \widetilde{P} \end{pmatrix}U,	
+							\]
+							where $\mathsf{\lambda} = \text{diag}(\lambda_1,\dots,\lambda_k)$.
+						</div>
 					</section>
 					<section style="text-align: left;">
 						<div class="thmHead"> <b> Conjecture: </b></div>
 						<div class="thmBody">
-							For a fixed $n\geq 3$, all $n\times n$ indefinite perfect copositive matrices lie in 
+							For $n\geq 3$, all $n\times n$ indefinite perfect copositive matrices lie in 
 							at most finitely many facets of $\mR_\cop$.
 						</div>
 						In other words there is a finite set $\Lambda \subset \IZ^n_{\geq 0}$, such that
 						every indefinite perfect copositive matrix has at least one minimal vector in $\Lambda$
 					</section>
-					<section>
+					<section style="text-align: left;">
 						<div class="thmHead"> <b> Example: </b></div>
 						<div class="thmBody">
-							For $n=3$, we have $\Lambda = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$
+							For $n=3$, we have $\Lambda = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$.
 						</div>
+						This holds because ...
 					</section>
 				</section>
 				<section>
 					<section> Finiteness Results </section>
 					<section style="text-align: left;">
-						<span class="fragment fade-out"> The classic one </span>
-						<span class="fragment fade-left"> The new (partial) one </span>
+						<span class="stack">
+							<span class="fragment fade-up postChange" data-fragment-index="0"> The new (partial) one </span>
+							<span class="fragment fade-out" data-fragment-index="0"> The classic one </span>
+						</span>
 						<div class="thmHead"> 
 							<b> Theorem: </b> 
-							<span class="fragment fade-out"> (A-M Berg&eacute ?) </span>
-							<span class="fragment fade-left"> (Dutour-Sikiri&#263, Sch&uumlrmann, Vallentin, 2017) </span>
-							</div>
+							<span class="r-stack"> 
+								<span class="fragment fade-up postChange" data-fragment-index="0"> 
+									(Dutour-Sikiri&#263, Sch&uumlrmann, Vallentin) 
+								</span>
+								<span class="fragment fade-out" data-fragment-index="0"> 
+									(A-M Berg&eacute ? Voronoi ?)
+								</span>
+							</span>
+						</div>
 						<div class="thmBody">
 							For any $P_0\in$
-							<span class="fragment fade-out">$\mS^n_{>0}$ </span>
-							<span class="fragment fade-left">$\oint\cp^n$ </span>, 
-							constant $C>0$ and given minimum $m$,
-							there are only finitely many classically perfect matrices $P$ with 
+							<span class="r-stack">
+								<span class="fragment fade-up postChange" data-fragment-index="0">$\oint\cp^n$ </span>
+								<span class="fragment fade-out" data-fragment-index="0">$\mS^n_{>0}$ </span>
+							</span>,
+							constant $C>0$ and given 
+							<span class="r-stack">
+								<span class="fragment fade-up postChange" data-fragment-index="0"> copositive </span>
+								<span class="fragment fade-out" data-fragment-index="0"> arithmetical </span>
+							</span>
+							minimum $m$, there are only finitely many 
+							<span class="r-stack">
+								<span class="fragment fade-up postChange" data-fragment-index="0"> perfect copositive </span>
+								<span class="fragment fade-out" data-fragment-index="0"> classically perfect </span>
+							</span>
+							matrices $P$ with 
+							<span class="r-stack">
+								<span class="fragment fade-up postChange" data-fragment-index="0"> copositive </span>
+								<span class="fragment fade-out" data-fragment-index="0"> arithmetical </span>
+							</span>
 							minimum $m$, such that $\langle P, P_0 \rangle \leq C$.
 						</div>
-						Does not hold for any matrix outside of $\mS^n_{>0}$!
+						<span class="r-stack">
+							<span class="fragment fade-up postChange" data-fragment-index="0"> Does </span>
+							<span class="fragment fade-out" data-fragment-index="0"> Does not </span>
+						</span>
+						hold for matrices outside of 
+						<span class="r-stack">
+							<span class="fragment fade-up postChange" data-fragment-index="0"> $\oint\cp^n$! </span>
+							<span class="fragment fade-out" data-fragment-index="0"> $\mS^n_{>0}$! </span>
+						</span>
 						<!-- <div class="thmHead"> 
 							<b> Theorem: </b> (Dutour-Sikiri&#263, Sch&uumlrmann, Vallentin, 2017)
 						</div>
