@@ -45,12 +45,12 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2> Perfect Copositive Matrices </h2>
+					<h2>Perfect Copositive Matrices</h2>
 					<br>
 					Based on joint works with Achill Schürmann
 				</section>
 				<section>
-					<section> Quick Rundown of Definitions and Notation </section>
+					<section><h3>Quick Rundown of Definitions and Notation</h3></section>
 					<section style="text-align: left;">
 							We denote by $\mS^d$ the vector space of symmetric $d\times d$ matrices, 
 							by $\mS^d_{\geq 0}$ (resp. $\mS^d_{>0}$) the cone of positive semidefinite
@@ -93,9 +93,9 @@
 					</section>
 				</section>
 				<section>
-					<section> Connecting the Classics with the Newfangled </section>
+					<section><h3>Connecting the Classics with the Newfangled</h3></section>
 					<section>
-						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmHead"><b>Theorem:</b></div>
 						<div class="thmBody">
 							Every classically perfect matrix is artihmetically equivalent to a 
 							classically perfect matrix, which is also perfect copositive.
@@ -103,10 +103,12 @@
 					</section>
 				</section>
 				<section>
-					<section> Classifying all positive semidefinite perfect copositive matrices </section>
-					<!-- TODO: Better name for those!! -->
+					<section> 
+						<h3>Classifying all positive semidefinite perfect copositive matrices</h3> 
+						<!-- TODO: Better name for those!! -->
+					</section>
 					<section style="text=align: left;">
-						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmHead"><b>Theorem:</b></div>
 						<div class="thmBody">
 							Let $P$ be positive semidefinite and perfect copositive with $\ork P=k \geq 2$.
 							Then there exists a $U\in\text{GL}_n(\IZ)$ and a perfect copositive 
@@ -115,9 +117,6 @@
 								U^\intercal PU = \begin{pmatrix} 0 & 0 \\ 0 & \widetilde{P} \end{pmatrix}.
 							\]
 						</div>
-					</section>
-					<section>
-						"Difficult" part is showing $\widetilde{P}$ to be perfect copositive. 
 					</section>
 					<section style="text-align: left;">
 						For positive semidefinite (in fact all non-full rank) matrices $P$ we have 
@@ -131,17 +130,45 @@
 						we say that they <em> generate </em> $\MinC P$. 
 					</section>
 					<section style="text-align: left;">
-						<div class="thmHead"> <b> Corollary: </b></div>
+						<div class="thmHead"><b>Corollary:</b></div>
 						<div class="thmBody"> 
 							If $\ork P=k$, then $\MinC P$ has $N \geq \binom{k+1}{2}$ generators 
 							$x_1, \dots, x_N$.
 						</div>
 						Easy to prove using the "explicit" construction of $U$ in the theorem.
 					</section>
-					<section> What about indefinite matrices? </section>
+					<section>
+						<h4> Can we classify all faces of $\mS^n_{\geq 0}$ that contain perfect copositive 
+						matrices (up to symmetry)? </h4>
+					</section>
+					<section style="text-align: left;">
+						To classify the possible faces, we only need to look at the possible kernels that a
+						positive semidefinite perfect copositive matrices can have:
+						<div class="thmHead"><b>Theorem:</b></div>
+						<div class="thmBody"> 
+							Let $S$ be a subspace of $\IR^n$. Exactly one of the following is true: <br>
+							<ul>
+								<li> $S$ has a basis contained in $\oint\IR^n_{\geq 0}$
+							  <li> $S^\perp \cap \IR^n_{\geq 0} \neq \{ 0 \}$.
+							</ul>
+						</div>
+					</section>
+					<section style="text-align: left;">
+						Hence we need to look at "positive" subspaces, or in fact "postive" sublattices of 
+						$\IZ^n$.
+					</section>
+					<section>
+					</section>
+					<section>
+					</section>
+					<section>
+					</section>
+				</section>
+				<section>
+					<section><h3>What about indefinite matrices?</h3></section>
 					<section style="text-align: left;">
 						Let $P$ be a indefinite perfect copositive matrix.
-						<div class="thmHead"> <b> Some general properties: </b></div>
+						<div class="thmHead"><b>Some general properties:</b></div>
 						<div class="thmBody">
 							<ul>
 								<li> $\ork P \geq 3$ </li>
@@ -153,7 +180,7 @@
 						</div>
 					</section>
 					<section style="text-align: left;">
-						<div class="thmHead"> <b> Theorem: </b></div>
+						<div class="thmHead"><b>Theorem:</b></div>
 						<div class="thmBody">
 							Let $P$ be an indefinite perfect copositive matrix with $k$ negative eigenvalues 
 							$\lambda_1, \dots, \lambda_k$. 
@@ -166,7 +193,7 @@
 						</div>
 					</section>
 					<section style="text-align: left;">
-						<div class="thmHead"> <b> Conjecture: </b></div>
+						<div class="thmHead"><b>Conjecture:</b></div>
 						<div class="thmBody">
 							For $n\geq 3$, all $n\times n$ indefinite perfect copositive matrices lie in 
 							at most finitely many facets of $\mR_\cop$.
@@ -175,7 +202,7 @@
 						every indefinite perfect copositive matrix has at least one minimal vector in $\Lambda$
 					</section>
 					<section style="text-align: left;">
-						<div class="thmHead"> <b> Example: </b></div>
+						<div class="thmHead"><b>Example:</b></div>
 						<div class="thmBody">
 							For $n=3$, we have $\Lambda = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$.
 						</div>
@@ -183,7 +210,7 @@
 					</section>
 				</section>
 				<section>
-					<section> Finiteness Results </section>
+					<section><h3>Finiteness Results</h3></section>
 					<section style="text-align: left;">
 						<span class="stack">
 							<span class="fragment fade-up postChange" data-fragment-index="0"> The new (partial) one </span>
